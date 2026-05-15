@@ -5,17 +5,17 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>
-        Slope-Track: Multiple Object Tracking on Ski Slopes
+        Video-Consistent Synthetic Skiing Trajectories
     </title>
     <meta content="GLAMR" property="og:title" />
-    <meta content="https://github.com/SlopeTrack" property="og:url" />
-    <meta name="keywords" content="Slope-Track: Multiple Object Tracking on Ski Slopess">
+    <meta content="https://github.com/msaydez/synthetic_video_trajectories" property="og:url" />
+    <meta name="keywords" content="Video-Consistent Synthetic Skiing Trajectories">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-    <script defer src="js/fontawesome.all.min.js"></script>
+    <script defer src="fontawesome.all.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
     </div>
     <div class="n-title">
         <h1>
-            Slope-Track: Multiple Object Tracking on Ski Slopes
+            Video-Consistent Synthetic Skiing Trajectories
         </h1>
     </div>
     <div class="n-byline">
@@ -70,13 +70,8 @@
             </ul> -->
             <ul class="authors links">
                 <li>
-                    <a href="https://github.com/SlopeTrack/Slope_Track" target="_blank">
+                    <a href="https://github.com/msaydez/synthetic_video_trajectories" target="_blank">
                         <button class="btn"><i class="fab fa-github"></i> Code</button>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://zenodo.org/records/15394882" target="_blank">
-                        <button class="btn"><i class="fab fa-github"></i> Dataset</button>
                     </a>
                 </li>
             </ul>
@@ -97,89 +92,30 @@
                 </a>
             </p>
         </div>
-        
-
-
+    
         <h2 id="abstract">
             Abstract
         </h2>
         <p>
-            In this paper, we introduce Slope-Track. Slope-Track is a novel multiple object tracking (MOT) dataset designed to reflect the complexities of real ski slope environments. The dataset has over 96,000 frames collected from 10 different ski resorts under various weather and visibility conditions. Slope-Track addresses significant challenges in slope monitoring, including small object sizes, occlusions, fast and irregular motion, and low appearance consistency. It is densely annotated with bounding boxes and object identities, facilitating the evaluation of detection and tracking algorithms. We analyze the dataset’s characteristics comparing it to the existing MOT datasets. The results demonstrate that Slope-Track encapsulates a combination of challenges found in other datasets. Additionally, we benchmark a range of existing tracking algorithms and propose a new module that improves motion-based association by dealing with the specific shape of trajectories along ski slopes. Our results demonstrate that incorporating appearance features can have a mixed impact, depending on how they are used within each tracking algorithm. In contrast, motion-based methods and spatial association strategies show more reliable performance. Overall, we provide a challenging benchmark for evaluating and improving multi-object tracking systems in real-world outdoor environments.
-        <h2>
-            Dataset
-        </h2>
-        <div>
-            <img class="figure" src="media/slopetrack.png" width="100%" alt="Dataset Overview">
-        </div>
-        <p> Examples from Slope-Track dataset showing 9 of the 10 ski slopes included in the dataset. Slope-Track includes diverse weather conditions, visibility levels and viewpoints (unique camera position and camera quality)
+        Annotated skier trajectories are essential for developing video-based methods for tracking and behavior analysis on ski slopes, but obtaining such data is costly and labor-intensive. In this work, we proposed a framework for generating synthetic skier trajectories using an extended cellular automaton model enriched with skier-specific behavior and local multi-skier anticipation. The simulated trajectories were embedded in a 3D slope representation and projected into 2D image space through a virtual pinhole camera model, enabling video-consistent synthetic observations from multiple viewpoints. We evaluated the proposed approach through behavioral analysis, low-level trajectory distribution comparison with the Slope-Track dataset, and multi-object tracking experiments using DeepEIoU [7] with GlideTrack [3]. The results showed that the generated trajectories reproduced the dominant motion characteristics of real skier trajectories and that incorporating synthetic data during training improved tracking association performance on real ski-slope sequences. These findings suggest that behavior-aware synthetic trajectory generation can provide a useful complement to manually annotated ski-slope video datasets.
         </p>
-        <p>
-        Slope-Track consists of:
-            <ul>
-              <li> 32 videos of varying lengths; 11 videos for the training set, 4 videos for the validation set, 5 videos for the test set and an additional 12 videos that can be used as an unlabeled test set. </li>
-              <li> The dataset is 3318 seconds in length with 96,498 frames (including the unannotated videos) and 555,528 bounding boxes and 888 unique ids (annotated videos).</li>
-            </ul>
-        </p>
-    
-         <h2 id="results">
-            Results
-        </h2>
-        
-        <h3 class="results" id="appearance">
-            Appearance Features
-        </h3>
-        <div>
-            <img class="figure" src="media/interframe.png" width="100%" alt="Mean inter-frame cosine distance of re-ID features">
-        </div>
-        <div>
-            <img class="figure" src="media/example_bbox.jpg" width="100%" alt="Example showing the change in features for the same object in the Slope-Track dataset including bounding box size in pixels.">
-        </div>
-        <p>
-        Appearance analysis on MOT17, DanceTrack, SportsMOT and Slope-Track reporting on the validation set. The result shows that Slope-Track has inconsistent appearance features across frames leading to the highest inter frame object dissimilarity.
-        </p>
-
-
-        <h3 class="results" id="motion">
-            Motion Analysis
-        </h3>
-
-        <div class="row" style="display: flex; gap: 20px;">
-            <div class="column" style="flex: 1;">
-                <img src="media/Figure_4a.png"
-                     alt="IoU on adjacent frames"
-                     style="width:100%; height:auto;">
-            </div>
-            <div class="column" style="flex: 1;">
-                <img src="media/Figure_4b.png"
-                     alt="Kalman Filter-based IoU on different prediction intervals"
-                     style="width:100%; height:auto;">
-            </div>
-        </div>
-
-        <p>
-        Motion analysis of MOT17, DanceTrack, SportsMOT and Slope-Track reporting on the validation set, where the detection boxes are ground-truth boxes. The result shows that Slope-Track has fast motion, variable-speed and non-linear motion comparable to SportsMOT.
-        </p>
-
 
         <h2 id="citation">Citation</h2>
+        Ensure to cite the original framework:
+        <p>
+        Zhang, B., &amp; Xie, C.-Z. T. (2026).
+        <em>Exploring the complexity of pedestrian dynamics in skiing: A modelling and simulation framework</em>.
+        <em>Simulation Modelling Practice and Theory</em>, <strong>146</strong>, 103225.
+        <a href="https://doi.org/10.1016/j.simpat.2025.103225">https://doi.org/10.1016/j.simpat.2025.103225</a>
+        </p>
+        As well as the enhanced framework:
         
-        <pre style="background:#f7f7f7; padding:16px; border-radius:6px; overflow-x:auto;">
-        @article{Campbell2026SlopeTrack,
-          title   = {Slope-Track: Multiple Object Tracking on Ski Slopes},
-          author  = {Campbell, M'Saydez and Ducottet, Christophe and Muselet, Damien and Emonet, R{\'e}mi},
-          journal = {Computer Vision and Image Understanding},
-          pages   = {104663},
-          year    = {2026},
-          issn    = {1077-3142},
-          doi     = {10.1016/j.cviu.2026.104663},
-          url     = {https://www.sciencedirect.com/science/article/pii/S1077314226000305}
-        }
-        </pre>
+        Coming soon
         <h2>
             License
         </h2>
         <p>
-            The dataset of Slope-Track is available for <span class="emph">non-commercial</span> research purposes only. Please review the license file for the terms and conditions of usage. 
+            The framework is available for <span class="emph">non-commercial</span> research purposes only. Please review the license file for the terms and conditions of usage. 
         <br>
         <h3>
         Acknowledgement
