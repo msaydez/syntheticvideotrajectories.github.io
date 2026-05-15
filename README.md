@@ -1,1 +1,1 @@
-# syntheticvideotrajectories.github.io
+# syntheticvideotrajectories
